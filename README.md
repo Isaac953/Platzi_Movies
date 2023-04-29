@@ -5,3 +5,5 @@ Proyecto creado a partir del curso de Frameworks y Librerías de JavaScript en P
 ## 01 Layout (April 27, 28)
 
 PT-01: **Integrar Bootstrap y creación del Header, Main y Footer**.
+
+## 02 Home (April 29)
