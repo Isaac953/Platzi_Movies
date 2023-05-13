@@ -3,13 +3,14 @@
       <div class="col-12 col-lg-6">
         <div class="movie__card d-flex flex-row">
           <img class="movie__card--cover" src="../assets/img/avengers.jpg" alt="avengers">
-          <div class="d-flex w-100 flex-column justify-content-center align-items-center">
+          <div class="d-flex w-100 flex-column justify-content-center align-items-center" *ngFor="let movieItem of movieItems">
             <h3>Avengers</h3>
             <div>
-              <button type="button" class="btn btn-success btn-sm"><fa-icon [icon]="btnMinus"></fa-icon></button>
-              <span>0</span>
-              <button type="button" class="btn btn-success btn-sm"><fa-icon [icon]="btnplus"></fa-icon></button>
+              <button type="button" class="btn btn-success btn-sm" (click)="backSlide(1)"><fa-icon [icon]="btnMinus"></fa-icon></button>
+              <span>{{movieItem.sum}}</span>
+              <button type="button" class="btn btn-success btn-sm" (click)="nextSlide(1)"><fa-icon [icon]="btnplus"></fa-icon></button>
             </div>
+            <span class="tickets">Boletos disponibles {{movieItem.limit}}</span>
           </div>
         </div>
       </div>
