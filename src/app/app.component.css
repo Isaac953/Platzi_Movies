@@ -9,3 +9,20 @@ main {
 footer {
   height: 70px;
 }
+
+/* Start Media Queries Screens 1023px */
+@media screen and (max-width: 1023px) {
+  main {
+    height: 265vh;
+  }
+}
+/* End Media Queries Screens 1023px */
+
+/* Start Media Queries Screens 767px */
+@media screen and (max-width: 767px) {
+  main {
+    height: 120vh;
+  }
+}
+/* End Media Queries Screens 767px */
+

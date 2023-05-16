@@ -1,24 +1,18 @@
 <div class="container-fluid text-white">
     <div class="row">
-      <div class="col-12 col-lg-6">
+      <div class="col-12 col-lg-6" *ngFor="let movieItem of movieItems">
         <div class="movie__card d-flex flex-row">
-          <img class="movie__card--cover" src="./assets/img/avengers.jpg" alt="avengers">
-          <div class="d-flex w-100 flex-column justify-content-center align-items-center" *ngFor="let movieItem of movieItems">
-            <h3>Avengers</h3>
-            <div>
-              <button type="button" class="btn btn-success btn-sm" (click)="backSlide(1)"><fa-icon [icon]="btnMinus"></fa-icon></button>
+          <img class="movie__card--cover" src="{{movieItem.cover}}" alt="{{movieItem.title}}">
+          <div class="d-flex w-100 flex-column justify-content-center align-items-center">
+            <h3>{{movieItem.title}}</h3>
+            <div *ngFor="let detail of movieItem.buttons">
+              <button type="button" class="btn btn-success btn-sm" (click)="backSlide(1, movieItem.id)" [disabled]="movieItem.sum + 1 <= 1"><fa-icon [icon]="detail.minus"></fa-icon></button>
               <span>{{movieItem.sum}}</span>
-              <button type="button" class="btn btn-success btn-sm" (click)="nextSlide(1)"><fa-icon [icon]="btnplus"></fa-icon></button>
+              <button type="button" class="btn btn-success btn-sm" (click)="nextSlide(1, movieItem.id)" [disabled]="movieItem.sum + 1 > movieItem.limit"><fa-icon [icon]="detail.plus"></fa-icon></button>
             </div>
-            <span class="tickets">Boletos disponibles {{movieItem.limit}}</span>
+            <span class="tickets">{{movieItem.available}} {{movieItem.limit}}</span>
           </div>
         </div>
-      </div>
-      <div class="col-12 col-lg-6">
-        Column
-      </div>
-      <div class="col">
-        Column
       </div>
     </div>
 </div>
